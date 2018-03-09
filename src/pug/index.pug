@@ -1,0 +1,30 @@
+//- vars
+block vars
+doctype html
+head
+	meta(name="viewport" content='width=750,user-scalable=yes')
+	meta(name="format-detection", content="telephone=no")
+	meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+html(lang='ja')
+	head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + pageOgpType + ": http://ogp.me/ns/" + pageOgpType + "#")
+		title CCO時計
+
+		//- CSS Setting
+		block link
+			link(rel='stylesheet', href="./css/style.css")
+
+	body#g(class=bodyClass)
+		script
+			| var isPC = true;
+			| (function () { if (navigator.userAgent.toLowerCase().match(/iphone|ipad|android/)) { document.body.classList.add('sp');isPC=false;return; } document.body.classList .add('pc'); })();
+		//block body
+		#wrapper
+			.clock
+				#hand--hour.hand.hand--hour
+				#hand--min.hand.hand--min
+				#hand--sec.hand.hand--sec
+
+//- script(src='/js/libs.js')
+script(src='./js/app.js')
+
+block script

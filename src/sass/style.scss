@@ -1,0 +1,89 @@
+@import url("~reset.css");
+
+$baseColor: #a432c5;
+
+#wrapper {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+	line-height: 1.7em;
+	font-family: sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+$clockSize: 400px;
+.clock {
+	position: relative;
+	width: $clockSize;
+	height: $clockSize;
+	box-sizing: border-box;
+	border: 2px solid #000000;
+	border-radius: 50%;
+}
+
+.hand {
+	position: absolute;
+	background: url(/images/katamuki.png) 0 0 no-repeat;
+	background-size: 100%;
+	left: 50%;
+	top: 50%;
+	transform-origin: 50% 50%;
+	will-change: transform;
+	border-radius: 50%;
+	overflow: hidden;
+	transition: transform 0.1s ease-in 0s;
+	&.hand--hour {
+		$handSize: $clockSize * 0.35;
+		$margin: $handSize * -0.5;
+		width: $handSize;
+		height: $handSize;
+		margin-left: $margin;
+		margin-top: $margin;
+		z-index: 500;
+	}
+	&.hand--min {
+		$handSize: $clockSize * 0.6;
+		$margin: $handSize * -0.5;
+		width: $handSize;
+		height: $handSize;
+		margin-left: $margin;
+		margin-top: $margin;
+		z-index: 300;
+		opacity: 0.8;
+	}
+	&.hand--sec {
+		$handSize: $clockSize * 0.99;
+		$margin: $handSize * -0.5;
+		width: $handSize;
+		height: $handSize;
+		margin-left: $margin;
+		margin-top: $margin;
+		z-index: 100;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+}
+
+@media screen and (min-width: 751px) {
+	.mainContent {
+		padding-top: 50px;
+		width: 90%;
+	}
+	h1 {
+		font-size: 28px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.mainContent {
+		width: 94%;
+		padding-top: 80px;
+	}
+	h1 {
+		font-size: 34px;
+	}
+}

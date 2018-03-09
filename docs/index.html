@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=750,user-scalable=yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+</head>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# undefined: http://ogp.me/ns/undefined#">
+    <title>CCO時計</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body id="g">
+    <script>
+      var isPC = true;
+      (function () { if (navigator.userAgent.toLowerCase().match(/iphone|ipad|android/)) { document.body.classList.add('sp');isPC=false;return; } document.body.classList .add('pc'); })();
+    </script>
+    <!--block body-->
+    <div id="wrapper">
+      <div class="clock">
+        <div class="hand hand--hour" id="hand--hour"></div>
+        <div class="hand hand--min" id="hand--min"></div>
+        <div class="hand hand--sec" id="hand--sec"></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="./js/app.js"></script>
