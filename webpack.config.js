@@ -25,7 +25,7 @@ module.exports = [{
     app: './src/js/app.ts',
   },
   output: {
-    path: path.join(__dirname, './docs/js/'),
+    path: path.join(__dirname, ),
     filename: '[name].js',
   },
   module: {

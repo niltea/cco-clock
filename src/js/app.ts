@@ -17,7 +17,7 @@ class Hand {
   setAngle(current: number, max: number) {
     if (!this.isOK) return;
 
-    this.currentPosition = (current < max) ? current : current - max;
+    // this.currentPosition = (current < max) ? current : current - max;
     // 傾きの角度を求める
     const angle = (360 / max) * current;
     // 傾きが前回と変わっていなければ処理軽減のため中断
