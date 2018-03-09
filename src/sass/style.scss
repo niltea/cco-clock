@@ -3,25 +3,59 @@
 $baseColor: #a432c5;
 
 #wrapper {
+	overflow: hidden;
 	display: flex;
-	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	min-height: 100vh;
-	line-height: 1.7em;
+	line-height: 1.5em;
 	font-family: sans-serif;
 }
-
 h1 {
+	margin-bottom: 50px;
+	color: #23209d;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+}
+.desc {
+	margin-top: 50px;
 	text-align: center;
+	font-size: 10px;
+	&,
+	a {
+		color: #e2e2e2;
+	}
+	a:hover {
+		color: #AA669F;
+	}
 }
 
-$clockSize: 400px;
 .clock {
 	position: relative;
+	box-sizing: border-box;
+	border-radius: 50%;
+	opacity: 0;
+	&.is--shown {
+		opacity: 1;
+		transition: opacity 0.3s;
+	}
+	.cover {
+		position: absolute;
+		z-index: 1000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		border: 5px solid #000000;
+		box-sizing: border-box;
+		border-radius: 50%;
+	}
+}
+$clockSize: 500px;
+.clock {
 	width: $clockSize;
 	height: $clockSize;
-	box-sizing: border-box;
-	border: 2px solid #000000;
-	border-radius: 50%;
 }
 
 .hand {
@@ -35,6 +69,9 @@ $clockSize: 400px;
 	border-radius: 50%;
 	overflow: hidden;
 	transition: transform 0.1s ease-in 0s;
+	&.noTransition {
+		transition: none;
+	}
 	&.hand--hour {
 		$handSize: $clockSize * 0.35;
 		$margin: $handSize * -0.5;
@@ -55,7 +92,7 @@ $clockSize: 400px;
 		opacity: 0.8;
 	}
 	&.hand--sec {
-		$handSize: $clockSize * 0.99;
+		$handSize: $clockSize * 1;
 		$margin: $handSize * -0.5;
 		width: $handSize;
 		height: $handSize;
@@ -65,25 +102,14 @@ $clockSize: 400px;
 	}
 }
 
-@media screen and (min-width: 1300px) {
-}
-
 @media screen and (min-width: 751px) {
-	.mainContent {
-		padding-top: 50px;
-		width: 90%;
-	}
 	h1 {
-		font-size: 28px;
+		font-size: 38px;
 	}
 }
 
 @media screen and (max-width: 750px) {
-	.mainContent {
-		width: 94%;
-		padding-top: 80px;
-	}
 	h1 {
-		font-size: 34px;
+		font-size: 42px;
 	}
 }

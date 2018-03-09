@@ -14,7 +14,9 @@ class Hand {
     this.isOK = true;
   }
 
-  setAngle(current:number, max:number) {
+  setAngle(current: number, max: number) {
+    if (!this.isOK) return;
+
     this.currentPosition = (current < max) ? current : current - max;
     // 傾きの角度を求める
     const angle = (360 / max) * current;
@@ -24,7 +26,18 @@ class Hand {
     this.angle = angle;
 
     // styleを設定
-    this.element.style.transform = `rotate(${angle}deg)`;
+    if (angle === 0) {
+      this.element.style.transform = `rotate(360deg)`;
+      setTimeout(() => {
+          this.element.classList.add('noTransition');
+          this.element.style.transform = `rotate(0deg)`;
+        setTimeout(() => {
+          this.element.classList.remove('noTransition');
+        }, 200);
+      }, 200);
+    } else {
+      this.element.style.transform = `rotate(${angle}deg)`;
+    }
   }
 }
 
@@ -37,7 +50,11 @@ const init = () => {
   hands.hour = new Hand('hour', 'hand--hour');
   hands.min = new Hand('min', 'hand--min');
   hands.sec = new Hand('sec', 'hand--sec');
-
+  const clock = document.getElementById('clock');
+  setHands();
+  setTimeout(() => {
+    clock.classList.add('is--shown');
+  }, 500);
   setInterval(setHands, 500);
 };
 

@@ -12,6 +12,7 @@ html(lang='ja')
 		//- CSS Setting
 		block link
 			link(rel='stylesheet', href="./css/style.css")
+			link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:100")
 
 	body#g(class=bodyClass)
 		script
@@ -19,10 +20,19 @@ html(lang='ja')
 			| (function () { if (navigator.userAgent.toLowerCase().match(/iphone|ipad|android/)) { document.body.classList.add('sp');isPC=false;return; } document.body.classList .add('pc'); })();
 		//block body
 		#wrapper
-			.clock
+			h1 Iwanaga Fam Clock
+			#clock.clock
 				#hand--hour.hand.hand--hour
 				#hand--min.hand.hand--min
 				#hand--sec.hand.hand--sec
+				.cover
+			.desc
+				p 肖像権はいちから株式会社&nbsp;
+					a(href="https://twitter.com/iwataiki", target="_blank", rel="noopener") @iwataiki
+					|氏に所属します
+				p お問い合わせは
+					a(href="https://twitter.com/niltea_vt", target="_blank", rel="noopener") こちらの凛famおじさん
+					|へ
 
 //- script(src='/js/libs.js')
 script(src='./js/app.js')

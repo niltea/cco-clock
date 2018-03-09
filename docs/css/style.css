@@ -46,22 +46,53 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }#wrapper {
+  overflow: hidden;
   display: flex;
-  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   min-height: 100vh;
-  line-height: 1.7em;
+  line-height: 1.5em;
   font-family: sans-serif; }
 
 h1 {
-  text-align: center; }
+  margin-bottom: 50px;
+  color: #23209d;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100; }
+
+.desc {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 10px; }
+  .desc,
+  .desc a {
+    color: #e2e2e2; }
+  .desc a:hover {
+    color: #AA669F; }
 
 .clock {
   position: relative;
-  width: 400px;
-  height: 400px;
   box-sizing: border-box;
-  border: 2px solid #000000;
-  border-radius: 50%; }
+  border-radius: 50%;
+  opacity: 0; }
+  .clock.is--shown {
+    opacity: 1;
+    transition: opacity 0.3s; }
+  .clock .cover {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50%; }
+
+.clock {
+  width: 500px;
+  height: 500px; }
 
 .hand {
   position: absolute;
@@ -77,36 +108,32 @@ h1 {
   transition: -webkit-transform 0.1s ease-in 0s;
   transition: transform 0.1s ease-in 0s;
   transition: transform 0.1s ease-in 0s, -webkit-transform 0.1s ease-in 0s; }
+  .hand.noTransition {
+    transition: none; }
   .hand.hand--hour {
-    width: 140px;
-    height: 140px;
-    margin-left: -70px;
-    margin-top: -70px;
+    width: 175px;
+    height: 175px;
+    margin-left: -87.5px;
+    margin-top: -87.5px;
     z-index: 500; }
   .hand.hand--min {
-    width: 240px;
-    height: 240px;
-    margin-left: -120px;
-    margin-top: -120px;
+    width: 300px;
+    height: 300px;
+    margin-left: -150px;
+    margin-top: -150px;
     z-index: 300;
     opacity: 0.8; }
   .hand.hand--sec {
-    width: 396px;
-    height: 396px;
-    margin-left: -198px;
-    margin-top: -198px;
+    width: 500px;
+    height: 500px;
+    margin-left: -250px;
+    margin-top: -250px;
     z-index: 100; }
 
 @media screen and (min-width: 751px) {
-  .mainContent {
-    padding-top: 50px;
-    width: 90%; }
   h1 {
-    font-size: 28px; } }
+    font-size: 38px; } }
 
 @media screen and (max-width: 750px) {
-  .mainContent {
-    width: 94%;
-    padding-top: 80px; }
   h1 {
-    font-size: 34px; } }
+    font-size: 42px; } }
