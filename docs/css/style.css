@@ -45,23 +45,35 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}#wrapper {
+}html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: none; }
+
+#wrapper {
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 100vh;
   line-height: 1.5em;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  width: 100%;
+  height: 100%; }
 
 h1 {
+  padding-top: 30px;
   margin-bottom: 50px;
   color: #23209d;
   font-family: 'Raleway', sans-serif;
   font-weight: 100; }
 
 .desc {
+  padding-bottom: 30px;
   margin-top: 50px;
   text-align: center;
   font-size: 10px; }
@@ -75,7 +87,8 @@ h1 {
   position: relative;
   box-sizing: border-box;
   border-radius: 50%;
-  opacity: 0; }
+  opacity: 0;
+  flex-shrink: 0; }
   .clock.is--shown {
     opacity: 1;
     transition: opacity 0.3s; }
@@ -89,10 +102,6 @@ h1 {
     border: 5px solid #000000;
     box-sizing: border-box;
     border-radius: 50%; }
-
-.clock {
-  width: 500px;
-  height: 500px; }
 
 .hand {
   position: absolute;
@@ -111,29 +120,53 @@ h1 {
   .hand.noTransition {
     transition: none; }
   .hand.hand--hour {
-    width: 175px;
-    height: 175px;
-    margin-left: -87.5px;
-    margin-top: -87.5px;
     z-index: 500; }
   .hand.hand--min {
-    width: 300px;
-    height: 300px;
-    margin-left: -150px;
-    margin-top: -150px;
     z-index: 300;
     opacity: 0.8; }
   .hand.hand--sec {
-    width: 500px;
-    height: 500px;
-    margin-left: -250px;
-    margin-top: -250px;
     z-index: 100; }
 
 @media screen and (min-width: 751px) {
   h1 {
-    font-size: 38px; } }
+    font-size: 38px; }
+  .clock {
+    width: 750px;
+    height: 750px; }
+  .hand--hour {
+    width: 262.5px;
+    height: 262.5px;
+    margin-left: -131.25px;
+    margin-top: -131.25px; }
+  .hand--min {
+    width: 450px;
+    height: 450px;
+    margin-left: -225px;
+    margin-top: -225px; }
+  .hand--sec {
+    width: 750px;
+    height: 750px;
+    margin-left: -375px;
+    margin-top: -375px; } }
 
 @media screen and (max-width: 750px) {
   h1 {
-    font-size: 42px; } }
+    font-size: 42px; }
+  .clock {
+    width: 650px;
+    height: 650px; }
+  .hand--hour {
+    width: 227.5px;
+    height: 227.5px;
+    margin-left: -113.75px;
+    margin-top: -113.75px; }
+  .hand--min {
+    width: 390px;
+    height: 390px;
+    margin-left: -195px;
+    margin-top: -195px; }
+  .hand--sec {
+    width: 650px;
+    height: 650px;
+    margin-left: -325px;
+    margin-top: -325px; } }
