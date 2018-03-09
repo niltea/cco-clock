@@ -64,6 +64,9 @@ module.exports = [{
           use: [
             {
               loader: 'css-loader',
+              options: {
+                url: false,
+              },
             },
             {
               loader: 'postcss-loader',
