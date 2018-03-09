@@ -16,8 +16,8 @@ if (DEBUG) {
   console.log('###########################\n## Debug mode is enabled ##\n###########################');
 } else {
   plugins.push(
-    // new webpack.optimize.UglifyJsPlugin({ compress: { screw_ie8: true, warnings: false } }),
-    new webpack.optimize.AggressiveMergingPlugin()
+    new webpack.optimize.UglifyJsPlugin({ compress: { screw_ie8: true, warnings: false } }),
+    new webpack.optimize.AggressiveMergingPlugin(),
   );
 }
 module.exports = [{
@@ -26,7 +26,7 @@ module.exports = [{
   },
   output: {
     path: path.join(__dirname, './docs/js/'),
-    filename: '[name].js'
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -45,14 +45,14 @@ module.exports = [{
   resolve: {
     extensions: ['.ts', '.js'],
   },
-  plugins: plugins
+  plugins,
 }, {
   entry: {
     style: './src/sass/style.scss',
   },
   output: {
     path: path.join(__dirname, './docs/css/'),
-    filename: '[name].css'
+    filename: '[name].css',
   },
   module: {
     rules: [
@@ -60,33 +60,35 @@ module.exports = [{
         test: /\.scss$/,
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
+          fallback: 'style-loader',
           use: [
             {
-              loader: 'css-loader'
+              loader: 'css-loader',
             },
             {
               loader: 'postcss-loader',
               options: {
-                plugins: (loader) => [
-                  autoPrefixer
-                ],
-                sourceMap: true
-              }
+                plugins: (loader) => {
+                  return [
+                    autoPrefixer,
+                  ];
+                },
+                sourceMap: false,
+              },
             },
             {
               loader: 'sass-loader',
-              options: {}
+              options: {},
             },
-          ]
-        })
-      }
-    ]
+          ],
+        }),
+      },
+    ],
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: '[name].css'
-    })
-  ]
-}
+      filename: '[name].css',
+    }),
+  ],
+},
 ];

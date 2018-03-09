@@ -29,8 +29,8 @@ class Hand {
     if (angle === 0) {
       this.element.style.transform = `rotate(360deg)`;
       setTimeout(() => {
-          this.element.classList.add('noTransition');
-          this.element.style.transform = `rotate(0deg)`;
+        this.element.classList.add('noTransition');
+        this.element.style.transform = `rotate(0deg)`;
         setTimeout(() => {
           this.element.classList.remove('noTransition');
         }, 200);
